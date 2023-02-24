@@ -8,6 +8,7 @@ import { postOrder } from "api/orders";
 import OrderModal from "components/cart/OrderModal";
 import type { Item } from "types/itemType";
 import useCart from "hooks/useCart";
+import SkeletonUi from "components/SkeletonUi";
 
 const Cart = () => {
   const [checkedItems, setCheckedItems] = useState<string[]>([]);
@@ -17,7 +18,7 @@ const Cart = () => {
 
   // 전체 장바구니 데이터 불러오기
   const {
-    getCartList: { data: cartItems },
+    getCartList: { isLoading, data: cartItems },
   } = useCart();
 
   // 카트가 빈 경우
@@ -60,7 +61,10 @@ const Cart = () => {
             />{" "}
             전체 선택
           </CheckWrapper>
-          {cartItems &&
+          {isLoading ? (
+            <SkeletonUi length={4} />
+          ) : (
+            cartItems &&
             cartItems.map((item: Item) => (
               <ItemList
                 key={item.productId}
@@ -70,7 +74,8 @@ const Cart = () => {
                 checkedItems={checkedItems}
                 setCheckedItems={setCheckedItems}
               />
-            ))}
+            ))
+          )}
         </>
       )}
       {emptyCart ? (

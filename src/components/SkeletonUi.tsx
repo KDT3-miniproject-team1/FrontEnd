@@ -11,7 +11,7 @@ interface SkeletonStyleProps {
   marginTop?: string;
 }
 
-const Skeleton = ({ length }: SkeletonProp) => {
+const SkeletonUi = ({ length }: SkeletonProp) => {
   return (
     <>
       {Array(length)
@@ -75,4 +75,4 @@ const PictureSkeleton = styled(ProductSkeleton)`
   border-radius: 50%;
 `;
 
-export default Skeleton;
+export default SkeletonUi;

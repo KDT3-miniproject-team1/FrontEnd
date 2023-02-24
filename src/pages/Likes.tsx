@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { HiOutlineChevronRight, HiOutlineShoppingCart } from "react-icons/hi2";
 import colors from "constants/colors";
 import ItemList from "components/ItemList";
-import Skeleton from "components/SkeletonUi";
+import SkeletonUi from "components/SkeletonUi";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { deleteLikeList, getLikeLists } from "api/likes";
 import type { Item } from "types/itemType";
@@ -34,7 +34,7 @@ const Likes = () => {
       </H1>
       <ItemWrapper>
         {data && isLoading ? (
-          <Skeleton length={4} />
+          <SkeletonUi length={4} />
         ) : (
           data?.map((item) => (
             <ItemList
