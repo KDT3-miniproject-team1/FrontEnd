@@ -47,7 +47,7 @@ const ItemList = ({
       <CheckBox
         cart={typeof cart === "boolean" ? cart : false}
         onChange={handleChecked}
-        checked={!!checkedItems?.includes(item.productId as string)}
+        checked={!!checkedItems?.includes(item.productId)}
       />
       <Link to={detailUrl}>
         <ImgContent>
@@ -80,7 +80,7 @@ const ItemList = ({
             if (!item.cartId) {
               return;
             }
-            handleDelete(item.cartId);
+            handleDelete(item.cartId as number);
           }
         }}
       >
