@@ -13,7 +13,7 @@ import type { Item } from "types/itemType";
 import { useAppSelector } from "app/hooks";
 import { useQuery } from "@tanstack/react-query";
 import { getUserInfo } from "api/user";
-import { getOrderLists } from "../api/orders";
+import { getOrderLists } from "api/orders";
 
 const Main = () => {
   const [recommend, setRecommend] = useState<Array<Item>>([]);
